@@ -6,8 +6,15 @@
     android:padding="10dp"
     android:background="@drawable/bg"
     tools:context="com.example.myview.MainActivity">
+    <TextView
+        android:id="@+id/displaytv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="白棋先手"
+        android:layout_above="@+id/myview"/>
 
     <com.example.myview.MyView
+        android:id="@+id/myview"
         android:layout_centerVertical="true"
         android:background="#44ffff00"
         android:layout_width="match_parent"
