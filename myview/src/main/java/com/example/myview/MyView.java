@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -42,6 +43,8 @@ public class MyView extends View {
     private boolean isWhiteWin = true;
 
     private TextView displayTv;
+
+    private OnGameOverListener mListener;
 
     public MyView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -124,11 +127,7 @@ public class MyView extends View {
         drawPanel(canvas);
         drawPoint(canvas);
         if (isGameOver) {
-            if (isWhiteWin) {
-                Toast.makeText(getContext(), "白棋获胜", Toast.LENGTH_LONG).show();
-            } else {
-                Toast.makeText(getContext(), "黑棋获胜", Toast.LENGTH_LONG).show();
-            }
+            mListener.onGameOver(isWhiteWin);
         }
     }
 
@@ -282,5 +281,13 @@ public class MyView extends View {
         }
     }
 
+    public void setOnGameOverListener(OnGameOverListener listener) {
+        Log.i("myview", "setOnGameOverListener");
+        mListener = listener;
+    }
+
+    public interface OnGameOverListener {
+        public void onGameOver(boolean whoWin);
+    }
     
 }

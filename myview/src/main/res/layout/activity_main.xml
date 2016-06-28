@@ -10,7 +10,9 @@
         android:id="@+id/displaytv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="白棋先手"
+        android:gravity="center"
+        android:text="白棋先走"
+        android:textSize="20sp"
         android:layout_above="@+id/myview"/>
 
     <com.example.myview.MyView
